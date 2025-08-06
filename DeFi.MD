@@ -1,8 +1,3 @@
-
-### 📄 `DeFi.md` – Full-Stack DeFi Protocol Assignment Document
-
----
-
 # 💸 DeFi Protocol for Research & Tool Validation
 
 This project implements a realistic **upgradeable DeFi protocol** for testing and validating our **smart contract upgrade detection tool**, as part of our security research publication.
@@ -126,6 +121,7 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 ---
 
 ✅ Sync when you feel it's neccessary 
+
 ✅ Internal demo after each part completes
 
 ---
