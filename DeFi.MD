@@ -65,7 +65,7 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 * Implement wallet connection (MetaMask)
 * Create UI to:
 
-  * Deposit and withdraw into vault
+  * Deposit and withdraw into the vault
   * Show balances and earnings
   * Trigger `harvest()` (mock yield)
 * Handle transaction status, loading states, and errors
@@ -73,9 +73,33 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 #### 📁 Files:
 
 * `frontend/pages/index.tsx`
+  🗂️ Routing & Page Structure
+      Framework: Next.js
+      Main Page: Home (/index.tsx) renders wallet connect and vault UI components
+      Could later support route expansion (e.g., /stats, /admin)
 * `frontend/components/WalletConnect.tsx`
+   🔗 Wallet Integration
+      Tools Used: RainbowKit, wagmi, ethers.js
+      Features: Wallet connection (MetaMask support)
+      Network switching (to Sepolia or Anvil)
+      Display wallet address & status
 * `frontend/components/VaultUI.tsx`
+   💰 Vault Interaction UI
+       User Actions Supported: 
+            .Deposit tokens into the vault
+            .Withdraw tokens from the vault
+            .Harvest returns (mock yield)
+       UI Elements:
+            .Input fields for token amount 
+            .Buttons to initiate transactions
+            .Live feedback on transaction status
 * `frontend/hooks/useVault.ts`
+   ⚙️ Transaction Handling
+      Handled via: wagmi hooks (useContractWrite, useWaitForTransaction)
+      UI States:
+           .Pending transaction loaders
+           .Success/failure messages
+           .Error feedback if rejected or failed
 
 ---
 
@@ -89,7 +113,7 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 * Run upgrade detection tool (`upgrade_detector.py`) against contracts
 * Log output as structured JSON/CSV
 * Validate tool performance vs real contract behavior
-* Help in preparing dataset for paper
+* Help in preparing the dataset for the paper
 
 #### 📁 Files:
 
@@ -120,7 +144,7 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 
 ---
 
-✅ Sync when you feel it's neccessary 
+✅ Sync when you feel it's necessary 
 
 ✅ Internal demo after each part completes
 
