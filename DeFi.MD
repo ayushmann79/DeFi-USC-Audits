@@ -1,6 +1,6 @@
 # 💸 DeFi Protocol for Research & Tool Validation
 
-This project implements a realistic **upgradeable DeFi protocol** for testing and validating our **smart contract upgrade detection tool**, as part of our security research publication.
+As part of our security research publication, this project implements a realistic **upgradeable DeFi protocol** for testing and validating our **smart contract upgrade detection tool**.
 
 ---
 
@@ -73,33 +73,41 @@ This project implements a realistic **upgradeable DeFi protocol** for testing an
 #### 📁 Files:
 
 * `frontend/pages/index.tsx`
-  🗂️ Routing & Page Structure
+
+
+  #####🗂️ Routing & Page Structure
       Framework: Next.js
       Main Page: Home (/index.tsx) renders wallet connect and vault UI components
       Could later support route expansion (e.g., /stats, /admin)
+
 * `frontend/components/WalletConnect.tsx`
-   🔗 Wallet Integration
+
+   #####🔗 Wallet Integration
       Tools Used: RainbowKit, wagmi, ethers.js
       Features: Wallet connection (MetaMask support)
       Network switching (to Sepolia or Anvil)
       Display wallet address & status
+
 * `frontend/components/VaultUI.tsx`
-   💰 Vault Interaction UI
+
+   #####💰 Vault Interaction UI
        User Actions Supported: 
-            .Deposit tokens into the vault
-            .Withdraw tokens from the vault
-            .Harvest returns (mock yield)
+            -Deposit tokens into the vault
+            -Withdraw tokens from the vault
+            -Harvest returns (mock yield)
        UI Elements:
-            .Input fields for token amount 
-            .Buttons to initiate transactions
-            .Live feedback on transaction status
+            -Input fields for token amount 
+            -Buttons to initiate transactions
+            -Live feedback on transaction status
+
 * `frontend/hooks/useVault.ts`
-   ⚙️ Transaction Handling
+
+   #####⚙️ Transaction Handling
       Handled via: wagmi hooks (useContractWrite, useWaitForTransaction)
       UI States:
-           .Pending transaction loaders
-           .Success/failure messages
-           .Error feedback if rejected or failed
+           -Pending transaction loaders
+           -Success/failure messages
+           -Error feedback if rejected or failed
 
 ---
 
