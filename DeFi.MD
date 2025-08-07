@@ -72,42 +72,48 @@ As part of our security research publication, this project implements a realisti
 
 #### 📁 Files:
 
-* `frontend/pages/index.tsx`
+**`frontend/pages/index.tsx`**  
+🗂️ **Routing & Page Structure**  
+- **Framework**: Next.js  
+- **Purpose**: Main page (`/`) that renders:
+  - `WalletConnect` component
+  - `VaultUI` component  
+- **Notes**: Structured to support future route expansion (e.g., `/stats`, `/admin`)
 
+---
 
-  #####🗂️ Routing & Page Structure
-      Framework: Next.js
-      Main Page: Home (/index.tsx) renders wallet connect and vault UI components
-      Could later support route expansion (e.g., /stats, /admin)
+**`frontend/components/WalletConnect.tsx`**  
+🔗 **Wallet Integration**  
+- **Tools Used**: [RainbowKit](https://www.rainbowkit.com/), [wagmi](https://wagmi.sh/), [ethers.js](https://docs.ethers.org/)
+- **Features**:
+  - Wallet connection (MetaMask supported)
+  - Network switching (Sepolia, Anvil)
+  - Displays wallet address & status
 
-* `frontend/components/WalletConnect.tsx`
+---
 
-   #####🔗 Wallet Integration
-      Tools Used: RainbowKit, wagmi, ethers.js
-      Features: Wallet connection (MetaMask support)
-      Network switching (to Sepolia or Anvil)
-      Display wallet address & status
+**`frontend/components/VaultUI.tsx`**  
+💰 **Vault Interaction UI**  
+- **User Actions Supported**:
+  - Deposit tokens into the vault
+  - Withdraw tokens from the vault
+  - Harvest returns (mock yield)
+- **UI Elements**:
+  - Input fields for token amount
+  - Action buttons
+  - Live feedback on transaction status
 
-* `frontend/components/VaultUI.tsx`
+---
 
-   #####💰 Vault Interaction UI
-       User Actions Supported: 
-            -Deposit tokens into the vault
-            -Withdraw tokens from the vault
-            -Harvest returns (mock yield)
-       UI Elements:
-            -Input fields for token amount 
-            -Buttons to initiate transactions
-            -Live feedback on transaction status
-
-* `frontend/hooks/useVault.ts`
-
-   #####⚙️ Transaction Handling
-      Handled via: wagmi hooks (useContractWrite, useWaitForTransaction)
-      UI States:
-           -Pending transaction loaders
-           -Success/failure messages
-           -Error feedback if rejected or failed
+**`frontend/hooks/useVault.ts`**  
+⚙️ **Transaction Handling**  
+- **Powered by**: wagmi hooks:
+  - `useContractWrite`
+  - `useWaitForTransaction`
+- **UI States**:
+  - Pending transaction loaders
+  - Success/failure messages
+  - Error feedback for rejected/failed transactions
 
 ---
 
