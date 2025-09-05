@@ -1,0 +1,78 @@
+flowchart TD
+ subgraph USERS["Users"]
+        MM["MetaMask"]
+        WC["WalletConnect"]
+  end
+ subgraph FRONTEND["Frontend Layer"]
+        FW["Connect Wallet"]
+        UI["Deposit / Withdraw UI"]
+        BAL["Display Balances & Earnings"]
+  end
+ subgraph CONTRACTS["Smart Contracts Layer"]
+        V["Vault.sol - Deposits & Shares"]
+        C["Controller.sol - Routes Funds"]
+        S["Strategy.sol - Mock Yield Logic"]
+        T["Token.sol - ERC20 Token"]
+  end
+ subgraph UPGRADE["Upgradeability Mechanism"]
+        UUPS["UUPS Proxy"]
+        ADMIN["Admin / Owner Roles"]
+        UPG["upgradeTo Function"]
+  end
+ subgraph DEPLOY["Testing &amp; Deployment Layer"]
+        HH["Hardhat - Local Dev · Tests · Upgrades"]
+        SEP["Sepolia Testnet"]
+        FORK["Mainnet Fork"]
+  end
+ subgraph RESEARCH["Research &amp; Tool Layer"]
+        TOOL["Upgrade Detection Tool - Proxy · Delegatecall · CREATE2"]
+        DATA["Dataset Builder - JSON / CSV Logs"]
+        REP["Audit Report Generator"]
+  end
+    MM -- Connects --> FW
+    WC -- Connects --> FW
+    FW -- User Actions --> UI
+    UI -- Submit Tx --> BAL
+    BAL -- Interacts With --> V
+    V -- Routes --> C
+    C -- Executes --> S
+    V -- Represents --> T
+    V -- Proxied via --> UUPS
+    C -- Proxied via --> UUPS
+    S -- Proxied via --> UUPS
+    UUPS -- Controlled by --> ADMIN
+    ADMIN -- Can Call --> UPG
+    HH -. Deploy & Test .-> V & UUPS
+    SEP -. Live Testnet .-> V
+    FORK -. Mainnet Simulation .-> V
+    V -- Analyzed By --> TOOL
+    UUPS -- Analyzed By --> TOOL
+    TOOL -- Outputs --> DATA
+    TOOL -- Generates --> REP
+
+     MM:::usersStyle
+     WC:::usersStyle
+     FW:::frontendStyle
+     UI:::frontendStyle
+     BAL:::frontendStyle
+     V:::contractsStyle
+     C:::contractsStyle
+     S:::contractsStyle
+     T:::contractsStyle
+     UUPS:::upgradeStyle
+     ADMIN:::upgradeStyle
+     UPG:::upgradeStyle
+     HH:::deployStyle
+     SEP:::deployStyle
+     FORK:::deployStyle
+     TOOL:::researchStyle
+     DATA:::researchStyle
+     REP:::researchStyle
+    classDef usersStyle fill:#cfe2ff,stroke:#084298,stroke-width:2px,color:#000,font-weight:bold
+    classDef frontendStyle fill:#fff3cd,stroke:#664d03,stroke-width:2px,color:#000,font-weight:bold
+    classDef contractsStyle fill:#d1e7dd,stroke:#0f5132,stroke-width:2px,color:#000,font-weight:bold
+    classDef upgradeStyle fill:#f8d7da,stroke:#842029,stroke-width:2px,color:#000,font-weight:bold
+    classDef deployStyle fill:#e2e3e5,stroke:#41464b,stroke-width:2px,color:#000,font-weight:bold
+    classDef researchStyle fill:#e0cffc,stroke:#3d0a91,stroke-width:2px,color:#000,font-weight:bold
+
+
